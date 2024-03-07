@@ -42,13 +42,13 @@ class ManagementSystem:
         pass
 
     def remove_employee(self, emp_id):
-        self.employees = [e for e in self.employees if e.id != emp_id]
         """
         Remove an employee from the management system.
 
         Args:
             emp_id (str): The ID of the employee to be removed.
         """
+        self.employees = [e for e in self.employees if e.emp_id != emp_id]
         pass
 
     def add_project(self, project):
