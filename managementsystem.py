@@ -49,6 +49,8 @@ class ManagementSystem:
             emp_id (str): The ID of the employee to be removed.
         """
         self.employees = [e for e in self.employees if e.emp_id != emp_id]
+        
+
         pass
 
     def add_project(self, project):
@@ -72,11 +74,7 @@ class ManagementSystem:
         pass
 
     def assign_employee_to_project(self, emp_id, project_id):
-        employee = next((e for e in self.employees if e.id == emp_id), None)
-        project = next((p for p in self.project if p.id == emp_id), None)
-        if employee is None or project is None:
-            raise ValueError("Employee or project not found")
-        project.employees.append(employee)
+        
         """
         Assign an employee to a project.
 
@@ -87,5 +85,11 @@ class ManagementSystem:
         Raises:
             ValueError: If employee or project is not found.
         """
+        employee = next((e for e in self.employees if e.emp_id == emp_id), None)
+        project = next((p for p in self.projects if p.project_id == project_id), None)
+        if employee is None or project is None:
+            raise ValueError("Employee or project not found")
+        project.employees.append(employee)
+        
         pass
 
